@@ -7,13 +7,12 @@ sessions = {}
 for question in questions:
     questionIDs = list(questions.keys())
 
-sessions["test"] = {"questions_count": 0, "questions remaining": 0, "players":{"Mork":0,"Mindy":0}, "questions": []}
+##sessions["test"] = {"questions_count": 0, "questions remaining": 0, "players":{"Mork":{"timeOut":0, "score":2},"Mindy":{"timeOut":0,"score":0}}, "questions": []}
 
 def heartbeatIncrementor():
     while not heartbeedFinal:
         for session in sessions:
             cleanupList = []
-            print(sessions[session]["players"])
             for player in sessions[session]["players"]:
                 sessions[session]["players"][player]["timeOut"] += 1
                 if sessions[session]["players"][player]["timeOut"] > 8:
