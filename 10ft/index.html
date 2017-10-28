@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>QuizWipe</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script src="qw.js"></script>
+    </head>
+    <body class="indigo">
+        <div id="startpage-header" class="card teal grey-text text-lighten-3">
+            <h1>QuizWipe</h1>
+        </div>
+        <div id="startpage-main" class="card teal lighten-4 center">
+            <br>
+            <h3>Welcome to QuizWipe!</h3>
+            <span>To begin, enter a name for your session and click start.</span>
+            <br>
+            <div class="row">
+                <div class="input-field col s8 offset-s2">
+                    <input id="session_name" type="text">
+                    <label for="session_name">Session Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s3 offset-s7">
+                    <button id="newsession_button" class="btn waves-effect waves-light" onclick="new_session()">Start! <i class="material-icons right">send</i></button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
