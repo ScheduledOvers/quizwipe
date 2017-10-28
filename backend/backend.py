@@ -15,8 +15,8 @@ def heartbeatIncrementor():
             cleanupList = []
             print(sessions[session]["players"])
             for player in sessions[session]["players"]:
-                sessions[session]["players"][player] += 1
-                if sessions[session]["players"][player] > 8:
+                sessions[session]["players"][player]["timeOut"] += 1
+                if sessions[session]["players"][player]["timeOut"] > 8:
                     cleanupList.append(player)
             for player in cleanupList:
                 del sessions[session]["players"][player]
@@ -34,7 +34,7 @@ def clientInit(sessionName, clientName):
         if clientName in sessions[sessionName]["players"]:
             return {"status": 2}
         else:
-            sessions[sessionName]["players"][clientName] = 0
+            sessions[sessionName]["players"][clientName] = {"timeOut": 0, "score": 0}
             return {"status": 0}
     else:
         return {"status":1}
@@ -83,3 +83,9 @@ def staticReturn10ftIndex():
 def staticReturn10ftJava():
     with open("../10ft/qw.js") as f:
         return f.read()
+
+@hug.get("/10ft/joining.html", output=hug.output_format.html)
+@hug.get("/10ft/joining", output=hug.output_format.html)
+def dynamicReturn10ftJoining(sessionName):
+    with open("../10ft/joining.html") as f:
+        return f.read().replace("$SESSIONNAME$", sessionName)
