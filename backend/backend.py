@@ -1,14 +1,26 @@
 #!/usr/bin/python3
-import json, hug
+import json, hug, random
 with open("questions.json") as f:
     questions = json.load(f)
 sessions = {}
+
+for question in questions:
+    questionIDs = list(questions.keys())
+questionIDs
+
+
 @hug.get("/backend/session/new", output=hug.output_format.json) 
-def sessioninit(name,noquestions):
+def sessioninit(name,noquestions:hug.types.number):
     if name in sessions:
         return {"status": 1}
-    sessions[name] = {"questions_count": noquestions, "players":{"flip":0,"flop":2,"fly":89}}
-    return {"status": 0}    
+    questionPool = list(questionIDs)
+    questionList = []
+    for i in range(noquestions):
+        r = random.randint(0,len(questionPool)-1)
+        questionList.append(questionPool.pop(r))
+    print(questionList)
+    sessions[name] = {"questions_count": noquestions, "questions remaining": noquestions, "players":{}, "questions": questionList}
+    return {"status": 0, "sessions": sessions[name]}    
 
 @hug.get("/backend/session/playerlist", output=hug.output_format.json)
 def playerlist(name):

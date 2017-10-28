@@ -1,163 +1,157 @@
 {
-    "listBased":{
-        "question1":{
-            "listStates":3,
+        "001":{
+            "states":3,
+            "type": "list",
             "question":"What do these three have in common?",
             "list":["list item 1", "list item 2", "list item 3"],
             "answer1":"This is the first answer",
             "answer2":"This is the second answer",
             "answer3":"This is the correct answer",
             "answer4":"This is wrong",
-            "solution":3,
-            "questionID":1
+            "solution":3
         },
-        "question2":{
-            "listStates":3,
+        "002":{
+            "states":3,
+            "type": "list",
             "question":"This is a question",
             "list":["list item 1", "list item 2", "list item 3"],
             "answer1":"This is the first answer",
             "answer2":"This is the second answer",
             "answer3":"This is the correct answer",
             "answer4":"This is wrong",
-            "solution":3,
-            "questionID":2
+            "solution":3
         },
-        "question3":{
-            "listStates":3,
+        "003":{
+            "states":3,
+            "type": "list",
             "question":"This is a question",
             "list":["list item 1", "list item 2", "list item 3"],
             "answer1":"This is the first answer",
             "answer2":"This is the second answer",
             "answer3":"This is the correct answer",
             "answer4":"This is wrong",
-            "solution":3,
-            "questionID":3
+            "solution":3
         },
-        "question4":{
-            "listStates":3,
+        "004":{
+            "states":3,
+            "type": "list",
             "question":"This is a question",
             "list":["list item 1", "list item 2", "list item 3"],
             "answer1":"This is the first answer",
             "answer2":"This is the second answer",
             "answer3":"This is the correct answer",
             "answer4":"This is wrong",
-            "solution":3,
-            "questionID":4
+            "solution":3
         },
-        "question5":{
-            "listStates":3,
+        "005":{
+            "states":3,
+            "type": "list",
             "question":"This is a question",
             "list":["list item 1", "list item 2", "list item 3"],
             "answer1":"This is the first answer",
             "answer2":"This is the second answer",
             "answer3":"This is the correct answer",
             "answer4":"This is wrong",
-            "solution":3,
-            "questionID":5
+            "solution":3
+        },
+        "006":{
+            "states":3,
+            "type": "question",
+            "question":["This is a question", "This is a question", "This is a question"],
+            "answer1":"This is the first answer",
+            "answer2":"This is the second answer",
+            "answer3":"This is the correct answer",
+            "answer4":"This is wrong",
+            "solution":3
+        },
+        "007":{
+            "states":3,
+            "type": "question",
+            "question":["This is a question", "This is a question", "This is a question"],
+            "answer1":"This is the first answer",
+            "answer2":"This is the second answer",
+            "answer3":"This is the correct answer",
+            "answer4":"This is wrong",
+            "solution":3
+        },
+        "008":{
+            "states":3,
+            "type": "question",
+            "question":["This is a question", "This is a question", "This is a question"],
+            "answer1":"This is the first answer",
+            "answer2":"This is the second answer",
+            "answer3":"This is the correct answer",
+            "answer4":"This is wrong",
+            "solution":3
+        },
+        "009":{
+            "states":3,
+            "type": "question",
+            "question":["This is a question", "This is a question", "This is a question"],
+            "answer1":"This is the first answer",
+            "answer2":"This is the second answer",
+            "answer3":"This is the correct answer",
+            "answer4":"This is wrong",
+            "solution":3
+        },
+        "010":{
+            "states":3,
+            "type": "question",
+            "question":["This is a question", "This is a question", "This is a question"],
+            "answer1":"This is the first answer",
+            "answer2":"This is the second answer",
+            "answer3":"This is the correct answer",
+            "answer4":"This is wrong",
+            "solution":3
+        },
+        "011":{
+            "states":3,
+            "type": "answer",
+            "question":"This is a question",
+            "answer1": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "answer2": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "answer3": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "answer4": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "solution":3
+        },
+        "012":{
+            "states":3,
+            "type": "answer",
+            "question":"This is a question",
+            "answer1": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "answer2": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "answer3": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "answer4": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "solution":3
+        },
+        "013":{
+            "states":3,
+            "type": "answer",
+            "question":"This is a question",
+            "answer1": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "answer2": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "answer3": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "answer4": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "solution":3
+        },
+        "014":{
+            "states":3,
+            "type": "answer",
+            "question":"This is a question",
+            "answer1": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "answer2": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "answer3": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "answer4": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "solution":3
+        },
+        "015":{
+            "states":3,
+            "type": "answer",
+            "question":"This is a question",
+            "answer1": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "answer2": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "answer3": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "answer4": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "solution":3
         }
-    },
-    "questionLed":{
-        "question1":{
-            "questionStates":3,
-            "question":["This is a question", "This is a question", "This is a question"],
-            "answer1":"This is the first answer",
-            "answer2":"This is the second answer",
-            "answer3":"This is the correct answer",
-            "answer4":"This is wrong",
-            "solution":3,
-            "questionID":6
-        },
-        "question2":{
-            "questionStates":3,
-            "question":["This is a question", "This is a question", "This is a question"],
-            "answer1":"This is the first answer",
-            "answer2":"This is the second answer",
-            "answer3":"This is the correct answer",
-            "answer4":"This is wrong",
-            "solution":3,
-            "questionID":7
-        },
-        "question3":{
-            "questionStates":3,
-            "question":["This is a question", "This is a question", "This is a question"],
-            "answer1":"This is the first answer",
-            "answer2":"This is the second answer",
-            "answer3":"This is the correct answer",
-            "answer4":"This is wrong",
-            "solution":3,
-            "questionID":8
-        },
-        "question4":{
-            "questionStates":3,
-            "question":["This is a question", "This is a question", "This is a question"],
-            "answer1":"This is the first answer",
-            "answer2":"This is the second answer",
-            "answer3":"This is the correct answer",
-            "answer4":"This is wrong",
-            "solution":3,
-            "questionID":9
-        },
-        "question5":{
-            "questionStates":3,
-            "question":["This is a question", "This is a question", "This is a question"],
-            "answer1":"This is the first answer",
-            "answer2":"This is the second answer",
-            "answer3":"This is the correct answer",
-            "answer4":"This is wrong",
-            "solution":3,
-            "questionID":10
-        }
-    },
-    "answerLed":{
-        "question1":{
-            "question":"This is a question",
-            "answerStates":3,
-            "answer1": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer2": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer3": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer4": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "solution":3,
-            "questionID":11
-        },
-        "question2":{
-            "question":"This is a question",
-            "answerStates":3,
-            "answer1": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer2": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer3": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer4": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "solution":3,
-            "questionID":12
-        },
-        "question3":{
-            "question":"This is a question",
-            "answerStates":3,
-            "answer1": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer2": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer3": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer4": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "solution":3,
-            "questionID":13
-        },
-        "question4":{
-            "question":"This is a question",
-            "answerStates":3,
-            "answer1": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer2": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer3": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer4": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "solution":3,
-            "questionID":14
-        },
-        "question5":{
-            "question":"This is a question",
-            "answerStates":3,
-            "answer1": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer2": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer3": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer4": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "solution":3,
-            "questionID":15
-        }
-    }
 }
