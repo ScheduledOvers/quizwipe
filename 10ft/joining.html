@@ -5,6 +5,24 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>
+            #startpage-header
+            {
+                width: 60%;
+                margin-left: 20%;
+                height: 15vh;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #startpage-main
+            {
+                width: 50%;
+                margin-left: 25%;
+                height: 70vh;
+            }
+        </style>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -15,12 +33,12 @@
     </head>
     <body class="indigo">
         <div id="startpage-header" class="card teal grey-text text-lighten-3">
-            <h1>QuizWipe - <span id="data-sessionname">hacknotts</span></h1>
+            <h1>QuizWipe - <span id="data-title-sessionname"></span></h1>
         </div>
         <div id="startpage-main" class="card teal lighten-4 center">
             <br>
             <h3>Welcome to QuizWipe!</h3>
-            <span>Connect to <b>10.154.136.119</b> and enter the session name "<b>hacknotts</b>"!</span>
+            <span>Connect to <b>quizwipe.net</b> and enter the session name "<b id="data-info-sessionname"></b>"!</span>
             <br><br><br>
             <div class="row">
                 <div class="col s3" style="text-align: center;">

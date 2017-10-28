@@ -21,4 +21,6 @@ function get_player_list()
 
 $(document).ready(function() {
     $('select').material_select();
+    $("#data-title-sessionname").text(sessionname);
+    $("#data-info-sessionname").text(sessionname);
 });
