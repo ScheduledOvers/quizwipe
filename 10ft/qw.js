@@ -15,7 +15,7 @@ function new_session()
 function get_player_list()
 {
     $.ajax({
-        url: "/backend/session/playerlist" + $.now()
+        url: "/backend/session/playerlist?sessionname=" + sessionname + "&" + $.now()
     });
 };
 
