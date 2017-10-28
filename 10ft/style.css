@@ -1,0 +1,16 @@
+#startpage-header
+{
+    width: 60%;
+    margin-left: 20%;
+    height: 15vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#startpage-main
+{
+    width: 50%;
+    margin-left: 25%;
+    height: 70vh;
+}
