@@ -16,3 +16,21 @@ def playerlist(name):
         return sessions[name]["players"].keys()
     return {"status":1}
     
+# Static file returns
+
+@hug.get("/10ft/index", output=hug.output_format.html)
+@hug.get("/10ft/index.html", output=hug.output_format.html)
+@hug.get("/10ft", output=hug.output_format.html)
+def staticreturn10ftindex():
+    with open("../10ft/index.html") as f:
+        return f.read()
+
+@hug.get("/10ft/style.css", output=hug.output_format.text)
+def staticreturn10ftindex():
+    with open("../10ft/style.css") as f:
+        return f.read()
+
+@hug.get("/10ft/qw.js", output=hug.output_format.text)
+def staticreturn10ftindex():
+    with open("../10ft/qw.js") as f:
+        return f.read()
