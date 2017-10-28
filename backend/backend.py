@@ -13,6 +13,7 @@ def heartbeatIncrementor():
     while not heartbeedFinal:
         for session in sessions:
             cleanupList = []
+            print(sessions[session]["players"])
             for player in sessions[session]["players"]:
                 sessions[session]["players"][player] += 1
                 if sessions[session]["players"][player] > 8:
@@ -26,6 +27,17 @@ heartbeedFinal = False
 t = threading.Thread(target=heartbeatIncrementor)
 t.start()
 # t.cancel()
+
+@hug.get("/backend/client/new", output=hug.output_format.json)
+def clientInit(sessionName, clientName):
+    if sessionName in sessions:
+        if clientName in sessions[sessionName]["players"]:
+            return {"status": 2}
+        else:
+            sessions[sessionName]["players"][clientName] = 0
+            return {"status": 0}
+    else:
+        return {"status":1}
 
 @hug.get("/backend/client/heartbeat", output=hug.output_format.json)
 def heartbeatHelper(sessionName, clientName):
