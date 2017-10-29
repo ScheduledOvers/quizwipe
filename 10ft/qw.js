@@ -130,7 +130,7 @@ function reveal_questionstages(stagenum, max_stages) {
     if (stagenum !== max_stages)
     {
         $("#question-text").text(question["question"][stagenum]);
-        setTimeout(function(){ reveal_list(stagenum + 1, max_stages); }, 3000);
+        setTimeout(function(){ reveal_questionstages(stagenum + 1, max_stages); }, 3000);
     }
 }
 
