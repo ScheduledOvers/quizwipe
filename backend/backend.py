@@ -56,7 +56,7 @@ def clientInit(sessionName, clientName):
 def heartbeatHelper(sessionName, clientName):
     if sessionName in sessions:
         if clientName in sessions[sessionName]["players"]:
-            sessions[sessionName]["players"][clientName] = 0
+            sessions[sessionName]["players"][clientName]["timeOut"] = 0
             return {"status": 0}
         else:
             return {"status": 2}
