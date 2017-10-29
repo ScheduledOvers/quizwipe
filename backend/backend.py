@@ -131,6 +131,7 @@ def playerList(sessionName):
 @hug.get("/backend/session/standings", output=hug.output_format.json)
 def scoreboard(sessionName):
     if sessionName in sessions:
+        standings = []
         for player in sessions[sessionName]["players"]:
             standings.append({"player": player, "score": sessions[sessionName]["players"][player]["Score"]})
         standings.sort(key=operator.itemgetter("score"))
