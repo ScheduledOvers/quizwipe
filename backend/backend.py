@@ -82,9 +82,9 @@ def closeQuestion(sessionName):
         sessions[sessionName]["activeQuestionID"] = "000"
         results = []
         for player in sessions[sessionName]["players"]:
-            results.append({"player": player, "result": sessions[sessionName]["players"][player][latestScore]})
-            sessions[sessionName]["players"][player][score] += sessions[sessionName]["players"][player][latestScore]
-            sessions[sessionName]["players"][player][latestScore] = 0
+            results.append({"player": player, "result": sessions[sessionName]["players"][player]["latestScore"]})
+            sessions[sessionName]["players"][player]["score"] += sessions[sessionName]["players"][player]["latestScore"]
+            sessions[sessionName]["players"][player]["latestScore"] = 0
         results.sort(key=operator.itemgetter("result"))
         return {"status": 0, "results": results}
     else:
@@ -118,7 +118,7 @@ def sessionInit(sessionName,noquestions:hug.types.number):
         random.shuffle(questionPool)
         questionList.append(questionPool.pop())
     sessions[sessionName] = {"questionCount": noquestions, "questionsRemaining": noquestions, "players":{}, "questions": questionList, "activeQuestionID": "000"}
-    return {"status": 0, "sessions": sessions[sessionName]}    
+    return {"status": 0}    
 
 @hug.get("/backend/session/playerlist", output=hug.output_format.json)
 def playerList(sessionName):
@@ -126,6 +126,16 @@ def playerList(sessionName):
         return sessions[sessionName]["players"].keys()
     return {"status":1}
     
+@hug.get("/backend/session/standings", output=hug.output_format.json)
+def scoreboard(sessionName):
+    if sessionName in sessions:
+        for player in sessions[sessionName]["players"]:
+            standing.append({"player": player, "score": sessions[sessionName]["players"][player]["Score"]})
+        standing.sort(key=operator.itemgetter("score"))
+        return {"status": 0, "standngs": standings}
+    else:
+        return {"status": 1}
+
 # Static file returns
 
 @hug.get("/10ft/index", output=hug.output_format.html)
