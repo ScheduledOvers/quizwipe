@@ -40,7 +40,7 @@ function reveal_list(listitem) {
     if ($("#list-item-" + listitem).text() !== "")
     {
         $("#list-item-" + listitem).removeClass("indigo-text");
-        setTimeout(function(){ reveal_list(listitem + 1); }, 5000);
+        setTimeout(function(){ reveal_list(listitem + 1); }, 3000);
     }
 }
 
