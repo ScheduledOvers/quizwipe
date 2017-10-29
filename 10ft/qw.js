@@ -69,7 +69,7 @@ function get_question() {
                     question_count = data["questionCount"];
                     current_question = data["currentQuestion"];
                     question = data["question"];
-                    qtext = question["question"][question["question"].length() - 1];
+                    qtext = question["question"][question["question"].length - 1];
 
                     $("body").html('<div class="container"><h1 id="question-text" class="grey-text text-lighten-3"></h1><br><br><br><br><br><br></div><div class="row"><div class="col s3 card blue" style="min-height: 47vh;"><h3 id="answer-1" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card orange" style="min-height: 47vh;"><h3 id="answer-2" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card green" style="min-height: 47vh;"><h3 id="answer-3" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card yellow" style="min-height: 47vh;"><h3 id="answer-4" class="center"></h3></div></div>');
 
