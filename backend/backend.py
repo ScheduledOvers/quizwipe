@@ -86,7 +86,7 @@ def closeQuestion(sessionName):
             sessions[sessionName]["players"][player]["score"] += sessions[sessionName]["players"][player]["latestScore"]
             sessions[sessionName]["players"][player]["latestScore"] = 0
         results.sort(key=operator.itemgetter("result"))
-        return {"status": 0, "results": results}
+        return {"status": 0, "results": results[::-1]}
     else:
         return {"status": 1}        
 
