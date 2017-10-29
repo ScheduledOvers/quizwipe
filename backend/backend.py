@@ -86,6 +86,8 @@ def closeQuestion(sessionName):
             sessions[sessionName]["players"][player]["score"] += sessions[sessionName]["players"][player]["latestScore"]
             sessions[sessionName]["players"][player]["latestScore"] = 0
         results.sort(key=operator.itemgetter("result"))
+        while len(results) < 3:
+            results.insert(0, {"player": "", "result": -1}) 
         return {"status": 0, "results": results[::-1]}
     else:
         return {"status": 1}        
@@ -130,9 +132,11 @@ def playerList(sessionName):
 def scoreboard(sessionName):
     if sessionName in sessions:
         for player in sessions[sessionName]["players"]:
-            standing.append({"player": player, "score": sessions[sessionName]["players"][player]["Score"]})
-        standing.sort(key=operator.itemgetter("score"))
-        return {"status": 0, "standngs": standings}
+            standings.append({"player": player, "score": sessions[sessionName]["players"][player]["Score"]})
+        standings.sort(key=operator.itemgetter("score"))
+        while len(standings) < 5:
+            standings.insert(0, {"player": "", "result": -1}) 
+        return {"status": 0, "results": standings}
     else:
         return {"status": 1}
 
