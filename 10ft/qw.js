@@ -15,7 +15,22 @@ function new_session()
 function get_player_list()
 {
     $.ajax({
-        url: "/backend/session/playerlist?sessionName=" + sessionname + "&" + $.now()
+        url: "/backend/session/playerlist?sessionName=" + sessionname + "&" + $.now(),
+        success: function(data)
+        {
+            data.sort();
+            if (data != playerlist)
+            {
+                playerlist = data;
+                $("#playerdisplay").html("");
+                out = ""
+                for (player in data)
+                {
+                    out += "<div class=\"col s3\" style=\"text-align: center;\"><img src=\"https://api.adorable.io/avatars/285/" + playerlist[player] + ".png\" style=\"height: 4em; border-radius: 20%;\"><br><span class=\"title\">" + playerlist[player] + "<br><br></span></div>";
+                }
+                $("#playerdisplay").html(out);
+            }
+        }
     });
 };
 
