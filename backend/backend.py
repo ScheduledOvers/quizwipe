@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import json, hug, random, time, threading
+import json, hug, random, time, threading, operator
 with open("questions.json") as f:
     questions = json.load(f)
 sessions = {}
@@ -7,7 +7,7 @@ sessions = {}
 for question in questions:
     questionIDs = list(questions.keys())
 
-##sessions["test"] = {"questionsCount": 0, "questionsRemaining": 0, "players":{"Mork":{"timeOut":0, "score":2},"Mindy":{"timeOut":0,"score":0}}, "questions": [], "activeQuestionID": "000"}
+#sessions["test"] = {"questionsCount": 0, "questionsRemaining": 0, "players":{"Mork":{"timeOut": 0, "score": 2, "latestScore: 0"},"Mindy":{"timeOut": 0,"score": 0, "latestScore": 0}, "questions": [], "activeQuestionID": "000"}
 
 def heartbeatIncrementor():
     while not heartbeedFinal:
@@ -27,13 +27,15 @@ t = threading.Thread(target=heartbeatIncrementor)
 t.start()
 # t.cancel()
 
+# API endpoints
+
 @hug.get("/backend/client/new", output=hug.output_format.json)
 def clientInit(sessionName, clientName):
     if sessionName in sessions:
         if clientName in sessions[sessionName]["players"]:
             return {"status": 2}
         else:
-            sessions[sessionName]["players"][clientName] = {"timeOut": 0, "score": 0}
+            sessions[sessionName]["players"][clientName] = {"timeOut": 0, "score": 0, "answer": 0, "hasAnswered": 0, "timeAnswered": time.gmtime() }
             return {"status": 0}
     else:
         return {"status":1}
@@ -55,13 +57,26 @@ def returnQuestion(sessionName):
         if sessions[sessionName]["questionsRemaining"] != 0:
             sessions[sessionName]["questionsRemaining"] -= 1
             sessions[sessionName]["activeQuestionID"] = questionIDs[-1]
-            print(sessions[sessionName]["activeQuestionID"])
             currentQuestion = sessions[sessionName]["questionCount"] - sessions[sessionName]["questionsRemaining"]
             return {"status": 0, "questionCount":sessions[sessionName]["questionCount"], "currentQuestion": currentQuestion, "question":questions[questionIDs.pop()]}
         else:
             return {"status": 2}
     else:
         return {"status":1}
+
+@hug.get("/backend/question/results", output=hug.output_format.json)
+def closeQuestion(sessionName):
+    if sessionName in sessions:
+        sessions[sessionName]["activeQuestionID"] = "000"
+        results = []
+        for player in sessions[sessionName]["players"]:
+            results.append({"player": player, "result": sessions[sessionName]["players"][player][latestScore]})
+            sessions[sessionName]["players"][player][score] += sessions[sessionName]["players"][player][latestScore]
+            sessions[sessionName]["players"][player][latestScore] = 0
+        results.sort(key=operator.itemgetter("result"))
+        return {"status": 0, "results": results}
+    else:
+        return {"status": 1}        
 
 @hug.get("/backend/session/new", output=hug.output_format.json) 
 def sessionInit(sessionName,noquestions:hug.types.number):
@@ -78,7 +93,7 @@ def sessionInit(sessionName,noquestions:hug.types.number):
     return {"status": 0, "sessions": sessions[sessionName]}    
 
 @hug.get("/backend/session/playerlist", output=hug.output_format.json)
-def playerList(name):
+def playerList(sessionName):
     if name in sessions:
         return sessions[name]["players"].keys()
     return {"status":1}
