@@ -68,10 +68,10 @@
             "states":3,
             "type": "question",
             "question":["What event occured in England in 1666?", "What even occured in England in September 1666?", "What event occured in London in September 1666?"],
-            "answer1":"This is the first answer",
-            "answer2":"This is the second answer",
-            "answer3":"This is the correct answer",
-            "answer4":"This is wrong",
+            "answer1":"The coronation of Charles II",
+            "answer2":"The Black Plague",
+            "answer3":"The Great Fire of London",
+            "answer4":"Start of the Franco-Dutch Wars",
             "solution":3
         },
         "008":{
