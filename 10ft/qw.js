@@ -42,7 +42,7 @@ function get_question() {
         success: function(data) {
             if (status == 0)
             {
-                if (data["type"] == "list")
+                if (data["question"]["type"] == "list")
                 {
                     question_count = data["questionCount"];
                     current_question = data["currentQuestion"];
