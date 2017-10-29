@@ -78,8 +78,8 @@ def closeQuestion(sessionName):
     else:
         return {"status": 1}        
 
-@hug.get("/backend/client/answer", output=hug.output_format.json)
-def 
+#@hug.get("/backend/client/answer", output=hug.output_format.json)
+#def 
 
 @hug.get("/backend/session/new", output=hug.output_format.json) 
 def sessionInit(sessionName,noquestions:hug.types.number):
