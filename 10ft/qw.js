@@ -64,6 +64,10 @@ function get_question() {
                     setTimeout(get_results, 30000);
                 }
             }
+            else if (status == 2)
+            {
+
+            }
         }
     })
 }
@@ -74,7 +78,21 @@ function get_results() {
         success: function(data) {
             if (data["status"] == 0)
             {
-                $("body").html('<div class="container"><h1 id="question-text" class="grey-text text-lighten-3">' + question["question"] + '</h1><h3>Correct answer: <span id="correct">' + question["answer" + question["solution"]] + '</span></h3><br><br><ul class="collection"><li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][0]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][0]["player"] + '</span><p>Fastest Player</p></li><li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][1]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][1]["player"] + '</span><p>Second Fastest Player</p></li><li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][2]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][2]["player"] + '</span><p>Third Fastest Player</p></li></ul>');
+                out = '<div class="container"><h1 id="question-text" class="grey-text text-lighten-3">' + question["question"] + '</h1><h3>Correct answer: <span id="correct">' + question["answer" + question["solution"]] + '</span></h3><br><br><ul class="collection">'
+                if (data["results"][0]["result"] > 0)
+                {
+                    out += '<li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][0]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][0]["player"] + '</span><p>Fastest Player</p></li>'
+                    if (data["results"][1]["result"] > 0)
+                    {
+                        out += '<li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][1]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][1]["player"] + '</span><p>Second Fastest Player</p></li>'
+                        if (data["results"][2]["result"] > 0)
+                        {
+                            out += '<li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][2]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][2]["player"] + '</span><p>Third Fastest Player</p></li>'
+                        }
+                    }
+                }
+                out += '</ul>'
+                $("body").html(out);
             }
         }
     });
