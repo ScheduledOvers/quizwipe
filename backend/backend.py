@@ -9,6 +9,18 @@ for question in questions:
 
 #sessions["test"] = {"questionsCount": 0, "questionsRemaining": 0, "players":{"Mork":{"timeOut": 0, "score": 2, "latestScore: 0"},"Mindy":{"timeOut": 0,"score": 0, "latestScore": 0}, "questions": [], "activeQuestionID": "000"}
 
+def score(sessionName, clientName, answer):
+    if sessions[sessionName]["players"][clientName]["latestScore"] == 0:
+        if answer == sessions[sessionName]["activeQuestionID"]:
+            sessions[sessionName]["players"][clientName]["latestScore"] = len(player for player in sessions[sessionName]["players"] if sessions[sessionName]["players"][player]["latestScore"] == 0)
+            return 0
+        else:
+            sessions[sessionName]["players"][clientName]["latestScore"] = -1
+            return 2
+    else:
+        return 1
+
+
 def heartbeatIncrementor():
     while not heartbeedFinal:
         for session in sessions:
@@ -35,7 +47,7 @@ def clientInit(sessionName, clientName):
         if clientName in sessions[sessionName]["players"]:
             return {"status": 2}
         else:
-            sessions[sessionName]["players"][clientName] = {"timeOut": 0, "score": 0, "answer": 0, "hasAnswered": 0, "timeAnswered": time.gmtime() }
+            sessions[sessionName]["players"][clientName] = {"timeOut": 0, "score": 0, "latestScore": 0}
             return {"status": 0}
     else:
         return {"status":1}
@@ -78,8 +90,21 @@ def closeQuestion(sessionName):
     else:
         return {"status": 1}        
 
-#@hug.get("/backend/client/answer", output=hug.output_format.json)
-#def 
+@hug.get("/backend/client/answer", output=hug.output_format.json)
+def answerQuestion(sessionName, clientName, answer:hug.types.number):
+    if sessionName in sessions:
+        if clientName in sessions[sessionName]["players"]:
+            s = score(sessionName, clientName, answer)
+            if s == 0:
+                return {"status": 0}
+            elif s == 2:
+                return {"status": 4}
+            else:
+                return {"status": 3}
+        else:
+            return {"status": 2}
+    else:
+        return {"status": 1}
 
 @hug.get("/backend/session/new", output=hug.output_format.json) 
 def sessionInit(sessionName,noquestions:hug.types.number):
