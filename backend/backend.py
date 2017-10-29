@@ -12,7 +12,7 @@ for question in questions:
 def score(sessionName, clientName, answer):
     if sessions[sessionName]["players"][clientName]["latestScore"] == 0:
         if answer == questions[sessions[sessionName]["activeQuestionID"]]["solution"]:
-            sessions[sessionName]["players"][clientName]["latestScore"] = len(player for player in sessions[sessionName]["players"] if sessions[sessionName]["players"][player]["latestScore"] == 0)
+            sessions[sessionName]["players"][clientName]["latestScore"] = len([player for player in sessions[sessionName]["players"] if sessions[sessionName]["players"][player]["latestScore"] == 0])
             return 0
         else:
             sessions[sessionName]["players"][clientName]["latestScore"] = -1
