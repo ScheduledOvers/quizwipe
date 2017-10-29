@@ -26,18 +26,34 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-        <script src="/qw.js"></script>
+        <script src="qw.js"></script>
         <script>
             sessionname = "$SESSIONNAME$";
             clientname = "$CLIENTNAME$";
 
-            setInterval(heartbeat, 1000);
+            setInterval(heartbeat, 10000);
         </script>
     </head>
     <body class="indigo">
-        <div id="startpage-header" class="card teal grey-text text-lighten-3">
-            <h1>QuizWipe</h1>
+        <div style="min-height: 25vh;">
+            <div class="card blue blue-text center-align" style="width: 50%; margin-left: 25%;" onclick="contact_server(0)">
+                <br><h2>a</h2><br>
+            </div>
         </div>
-        <div id="startpage-main" class="card teal lighten-4 center">
+        <div style="min-height: 25vh;">
+            <div class="card orange orange-text center-align" style="width: 50%; margin-left: 25%;" onclick="contact_server(1)">
+                <br><h2>a</h2><br>
+            </div>
+        </div>
+        <div style="min-height: 25vh;">
+            <div class="card green green-text center-align" style="width: 50%; margin-left: 25%;" onclick="contact_server(2)">
+                <br><h2>a</h2><br>
+            </div>
+        </div>
+        <div style="min-height: 25vh;">
+            <div class="card yellow yellow-text center-align" style="width: 50%; margin-left: 25%;" onclick="contact_server(3)">
+                <br><h2>a</h2><br>
+            </div>
+        </div>
     </body>
 </html>

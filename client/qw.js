@@ -38,4 +38,5 @@ function heartbeat() {
 
 $(document).ready(function() {
     $('select').material_select();
+    $("#data-title-clientname").text(clientname);
 });
