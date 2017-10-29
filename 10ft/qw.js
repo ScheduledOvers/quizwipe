@@ -6,7 +6,7 @@ function new_session()
         {
             if (data["status"] == 0)
             {
-                window.location = "/10ft/joining.html?sessionname=" + $("#session_name").val();
+                window.location = "/10ft/joining.html?sessionName=" + $("#session_name").val();
             }
         }
     });
