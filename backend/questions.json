@@ -3,9 +3,9 @@
             "states":6,
             "type": "list",
             "question":"What do these people have in common?",
-            "list":["George Washington", "Genghis Khan",  "Sir Henry Parkes", "Emperor Jimmu", "Sim&#162;n Bolivar", "Saint Marinus"],
+            "list":["George Washington", "Genghis Khan",  "Sir Henry Parkes", "Emperor Jimmu", "Simon Bolivar", "Saint Marinus"],
             "answer1":"They all founded nations",
-            "answer2":"They all lead armies",
+            "answer2":"They all led armies",
             "answer3":"They all gave historic speeches",
             "answer4":"They all signed treaties",
             "solution":1
@@ -60,18 +60,18 @@
             "question":["Who is the Duke of Normandy?", "Who is the Duke of Normandy, and Colonel-in-Chief of the Royal Welsh?", "Who is the Duke of Normandy, Colonel-in-Chief of the Royal Welsh, and Head of the Commonwealth?"],
             "answer1":"Prince Philip, Duke of Edinburgh",
             "answer2":"Prince Charles, Prince of Wales",
-            "answer3":"Quean Elizabeth II",
+            "answer3":"Queen Elizabeth II",
             "answer4":"Prince Edward, Earl of Wessex",
             "solution":3
         },
         "007":{
             "states":3,
             "type": "question",
-            "question":["This is a question", "This is a question", "This is a question"],
-            "answer1":"This is the first answer",
-            "answer2":"This is the second answer",
-            "answer3":"This is the correct answer",
-            "answer4":"This is wrong",
+            "question":["What event occured in England in 1666?", "What even occured in England in September 1666?", "What event occured in London in September 1666?"],
+            "answer1":"The coronation of Charles II",
+            "answer2":"The Black Plague",
+            "answer3":"The Great Fire of London",
+            "answer4":"Start of the Franco-Dutch Wars",
             "solution":3
         },
         "008":{
@@ -108,10 +108,10 @@
             "states":3,
             "type": "answer",
             "question":"What is room temperature?",
-            "answer1": ["489&#248;R", "489&#248;R, 39&#248;F", "528&#248;R, 68&#248;F, 4&#248;C"],
-            "answer2": ["600&#248;R", "600&#248;R, 140&#248;F", "600&#248;R, 140&#248;F, 60&#248;C"],
-            "answer3": ["560&#248;R", "560&#248;R, 100&#248;F", "560&#248;R, 100&#248;F, 38&#248;C"],
-            "answer4": ["528&#248;R", "528&#248;R, 68&#248;F", "528&#248;R, 68&#248;F, 20&#248;C"],
+            "answer1": ["489R", "489R, 39F", "489R, 39F, 4C"],
+            "answer2": ["600R", "600R, 140F", "600R, 140F, 60C"],
+            "answer3": ["560R", "560R, 100F", "560R, 100F, 38C"],
+            "answer4": ["528R", "528R, 68F", "528R, 68F, 20C"],
             "solution":4
         },
         "012":{
@@ -137,21 +137,21 @@
         "014":{
             "states":3,
             "type": "answer",
-            "question":"This is a question",
-            "answer1": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer2": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer3": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer4": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "question":"Where and when was ",
+            "answer1": ["", "", ""],
+            "answer2": ["", "", ""],
+            "answer3": ["", "", ""],
+            "answer4": ["", "", ""],
             "solution":3
         },
         "015":{
             "states":3,
             "type": "answer",
-            "question":"This is a question",
-            "answer1": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer2": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer3": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
-            "answer4": ["This is answer 1, state 1", "This is answer 1, state 2", "This is answer 1, state 2"],
+            "question":"30 + 42 = ?",
+            "answer1": ["0b1101000", "0b1101000, 0x68", "0b1101000, 0x68, 104"],
+            "answer2": ["0b1001011", "0b1001011, 0x4B", "0b1001011, 0x4B, 75"],
+            "answer3": ["0b1011011", "0b1011011, 0x5B", "0b1011011, 0x5B, 91"],
+            "answer4": ["0b1001000", "0b1001000, 0x48", "0b1001000, 0x48, 72"],
             "solution":3
         }
 }
