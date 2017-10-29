@@ -78,6 +78,9 @@ def closeQuestion(sessionName):
     else:
         return {"status": 1}        
 
+@hug.get("/backend/client/answer", output=hug.output_format.json)
+def 
+
 @hug.get("/backend/session/new", output=hug.output_format.json) 
 def sessionInit(sessionName,noquestions:hug.types.number):
     if sessionName in sessions:
@@ -94,8 +97,8 @@ def sessionInit(sessionName,noquestions:hug.types.number):
 
 @hug.get("/backend/session/playerlist", output=hug.output_format.json)
 def playerList(sessionName):
-    if name in sessions:
-        return sessions[name]["players"].keys()
+    if sessionName in sessions:
+        return sessions[sessionName]["players"].keys()
     return {"status":1}
     
 # Static file returns
