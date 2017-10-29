@@ -36,6 +36,37 @@ function get_player_list()
     });
 };
 
+function get_question() {
+    $.ajax({
+        "url": "/backend/question/new?sessionName=" + sessionname,
+        success: function(data) {
+            if (status == 0)
+            {
+                if (data["type"] == "list")
+                {
+                    question_count = data["questionCount"];
+                    current_question = data["currentQuestion"];
+                    question = data["question"];
+
+                    $("body").html('<div class="container"><h1 id="question-text" class="grey-text text-lighten-3"></h1><table class="grey-text text-lighten-4" style="font-size: 2.3rem;"><tr><td id="list-item-0" class="indigo-text"></td><td id="list-item-1" class="indigo-text"></td></tr><tr><td id="list-item-2" class="indigo-text"></td><td id="list-item-3" class="indigo-text"></td></tr><tr><td id="list-item-4" class="indigo-text"></td><td id="list-item-5" class="indigo-text"></td></tr><tr><td id="list-item-6" class="indigo-text"></td><td id="list-item-7" class="indigo-text"></td></tr><tr><td id="list-item-8" class="indigo-text"></td><td id="list-item-9" class="indigo-text"></td></tr></table></div><div class="row"><div class="col s3 card blue" style="min-height: 47vh;"><h3 id="answer-1" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card orange" style="min-height: 47vh;"><h3 id="answer-2" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card green" style="min-height: 47vh;"><h3 id="answer-3" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card yellow" style="min-height: 47vh;"><h3 id="answer-4" class="center"></h3></div></div>');
+
+                    $("#question-text").text(question["question"]);
+                    for (var i = question["states"] - 1; i >= 0; i--) {
+                        $("#list-item-" + i).text(question["list"][i]);
+                    }
+
+                    $("#answer-1").text(question["answer1"]);
+                    $("#answer-2").text(question["answer2"]);
+                    $("#answer-3").text(question["answer3"]);
+                    $("#answer-4").text(question["answer4"]);
+
+                    reveal_list(0);
+                }
+            }
+        }
+    })
+}
+
 function reveal_list(listitem) {
     if ($("#list-item-" + listitem).text() !== "")
     {
