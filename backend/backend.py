@@ -133,7 +133,7 @@ def scoreboard(sessionName):
     if sessionName in sessions:
         standings = []
         for player in sessions[sessionName]["players"]:
-            standings.append({"player": player, "score": sessions[sessionName]["players"][player]["Score"]})
+            standings.append({"player": player, "score": sessions[sessionName]["players"][player]["score"]})
         standings.sort(key=operator.itemgetter("score"))
         while len(standings) < 5:
             standings.insert(0, {"player": "", "result": -1}) 
