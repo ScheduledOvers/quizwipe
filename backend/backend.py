@@ -156,6 +156,12 @@ def dynamicReturn10ftJoining(sessionName):
     with open("../10ft/joining.html") as f:
         return f.read().replace("$SESSIONNAME$", sessionName)
 
+@hug.get("/10ft/question.html", output=hug.output_format.html)
+@hug.get("/10ft/question", output=hug.output_format.html)
+def dynamicReturn10ftQuestion(sessionName):
+    with open("../10ft/question.html") as f:
+        return f.read().replace("$SESSIONNAME$", sessionName)
+
 @hug.get("/index", output=hug.output_format.html)
 @hug.get("/index.html", output=hug.output_format.html)
 @hug.get("/", output=hug.output_format.html)
