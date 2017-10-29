@@ -48,6 +48,7 @@ function get_question() {
                     current_question = data["currentQuestion"];
                     question = data["question"];
                     qtext = question["question"];
+                    atext = question["answer" + question["solution"]];
 
                     $("body").html('<div class="container"><h1 id="question-text" class="grey-text text-lighten-3"></h1><table class="grey-text text-lighten-4" style="font-size: 2.3rem;"><tr><td id="list-item-0" class="indigo-text"></td><td id="list-item-1" class="indigo-text"></td></tr><tr><td id="list-item-2" class="indigo-text"></td><td id="list-item-3" class="indigo-text"></td></tr><tr><td id="list-item-4" class="indigo-text"></td><td id="list-item-5" class="indigo-text"></td></tr><tr><td id="list-item-6" class="indigo-text"></td><td id="list-item-7" class="indigo-text"></td></tr><tr><td id="list-item-8" class="indigo-text"></td><td id="list-item-9" class="indigo-text"></td></tr></table></div><div class="row"><div class="col s3 card blue" style="min-height: 47vh;"><h3 id="answer-1" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card orange" style="min-height: 47vh;"><h3 id="answer-2" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card green" style="min-height: 47vh;"><h3 id="answer-3" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card yellow" style="min-height: 47vh;"><h3 id="answer-4" class="center"></h3></div></div>');
 
@@ -70,6 +71,7 @@ function get_question() {
                     current_question = data["currentQuestion"];
                     question = data["question"];
                     qtext = question["question"][question["question"].length - 1];
+                    atext = question["answer" + question["solution"]];
 
                     $("body").html('<div class="container"><h1 id="question-text" class="grey-text text-lighten-3"></h1><br><br><br><br><br><br></div><div class="row"><div class="col s3 card blue" style="min-height: 47vh;"><h3 id="answer-1" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card orange" style="min-height: 47vh;"><h3 id="answer-2" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card green" style="min-height: 47vh;"><h3 id="answer-3" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card yellow" style="min-height: 47vh;"><h3 id="answer-4" class="center"></h3></div></div>');
 
@@ -89,6 +91,7 @@ function get_question() {
                     current_question = data["currentQuestion"];
                     question = data["question"];
                     qtext = question["question"];
+                    atext = question["answer" + question["solution"]][question["stages"] - 1];
 
                     $("body").html('<div class="container"><h1 id="question-text" class="grey-text text-lighten-3"></h1><br><br><br><br><br><br></div><div class="row"><div class="col s3 card blue" style="min-height: 47vh;"><h3 id="answer-1" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card orange" style="min-height: 47vh;"><h3 id="answer-2" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card green" style="min-height: 47vh;"><h3 id="answer-3" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card yellow" style="min-height: 47vh;"><h3 id="answer-4" class="center"></h3></div></div>');
 
@@ -117,7 +120,7 @@ function get_results() {
         success: function(data) {
             if (data["status"] == 0)
             {
-                out = '<div class="container"><h1 id="question-text" class="grey-text text-lighten-3">' + qtext + '</h1><h3>Correct answer: <span id="correct">' + question["answer" + question["solution"]] + '</span></h3><br><br><ul class="collection">'
+                out = '<div class="container"><h1 id="question-text" class="grey-text text-lighten-3">' + qtext + '</h1><h3>Correct answer: <span id="correct">' + atext + '</span></h3><br><br><ul class="collection">'
                 if (data["results"][0]["result"] > 0)
                 {
                     out += '<li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][0]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][0]["player"] + '</span><p>Fastest Player</p></li>'
