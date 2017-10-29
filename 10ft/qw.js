@@ -83,6 +83,25 @@ function get_question() {
                     reveal_questionstages(0, question["stages"]);
                     setTimeout(get_results, 30000);
                 }
+                else if (data["question"]["type"] == "answer")
+                {
+                    question_count = data["questionCount"];
+                    current_question = data["currentQuestion"];
+                    question = data["question"];
+                    qtext = question["question"];
+
+                    $("body").html('<div class="container"><h1 id="question-text" class="grey-text text-lighten-3"></h1><br><br><br><br><br><br></div><div class="row"><div class="col s3 card blue" style="min-height: 47vh;"><h3 id="answer-1" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card orange" style="min-height: 47vh;"><h3 id="answer-2" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card green" style="min-height: 47vh;"><h3 id="answer-3" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card yellow" style="min-height: 47vh;"><h3 id="answer-4" class="center"></h3></div></div>');
+
+                    $("#question-text").text(question["question"]);
+
+                    $("#answer-1").text(question["answer1"][0]);
+                    $("#answer-2").text(question["answer2"][0]);
+                    $("#answer-3").text(question["answer3"][0]);
+                    $("#answer-4").text(question["answer4"][0]);
+
+                    reveal_answerstages(0, question["stages"]);
+                    setTimeout(get_results, 30000);
+                }
             }
             else if (status == 2)
             {
@@ -130,7 +149,18 @@ function reveal_questionstages(stagenum, max_stages) {
     if (stagenum !== max_stages)
     {
         $("#question-text").text(question["question"][stagenum]);
-        setTimeout(function(){ reveal_questionstages(stagenum + 1, max_stages); }, 3000);
+        setTimeout(function(){ reveal_questionstages(stagenum + 1, max_stages); }, 9000);
+    }
+}
+
+function reveal_answerstages(stagenum, max_stages) {
+    if (stagenum !== max_stages)
+    {
+        $("#answer-1").text(question["answer1"][stagenum]);
+        $("#answer-2").text(question["answer2"][stagenum]);
+        $("#answer-3").text(question["answer3"][stagenum]);
+        $("#answer-4").text(question["answer4"][stagenum]);
+        setTimeout(function(){ reveal_answerstages(stagenum + 1, max_stages); }, 9000);
     }
 }
 
