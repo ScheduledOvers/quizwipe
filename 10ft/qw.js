@@ -61,6 +61,7 @@ function get_question() {
                     $("#answer-4").text(question["answer4"]);
 
                     reveal_list(0);
+                    setTimeout(get_results, 30000);
                 }
             }
         }
@@ -76,7 +77,7 @@ function get_results() {
                 $("body").html('<div class="container"><h1 id="question-text" class="grey-text text-lighten-3">' + question["question"] + '</h1><h3>Correct answer: <span id="correct">' + question["answer" + question["solution"]] + '</span></h3><br><br><ul class="collection"><li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][0]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][0]["player"] + '</span><p>Fastest Player</p></li><li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][1]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][1]["player"] + '</span><p>Second Fastest Player</p></li><li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][2]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][2]["player"] + '</span><p>Third Fastest Player</p></li></ul>');
             }
         }
-    })
+    });
 }
 
 function reveal_list(listitem) {
