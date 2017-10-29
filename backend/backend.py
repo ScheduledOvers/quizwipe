@@ -7,7 +7,7 @@ sessions = {}
 for question in questions:
     questionIDs = list(questions.keys())
 
-##sessions["test"] = {"questions_count": 0, "questions remaining": 0, "players":{"Mork":{"timeOut":0, "score":2},"Mindy":{"timeOut":0,"score":0}}, "questions": []}
+##sessions["test"] = {"questionsCount": 0, "questionsRemaining": 0, "players":{"Mork":{"timeOut":0, "score":2},"Mindy":{"timeOut":0,"score":0}}, "questions": [], "activeQuestionID": "000"}
 
 def heartbeatIncrementor():
     while not heartbeedFinal:
@@ -49,19 +49,33 @@ def heartbeatHelper(sessionName, clientName):
     else:
         return {"status":1}
   
+@hug.get("/backend/question/new", output=hug.output_format.json)
+def returnQuestion(sessionName):
+    if sessionName in sessions:
+        if sessions[sessionName]["questionsRemaining"] != 0:
+            sessions[sessionName]["questionsRemaining"] -= 1
+            sessions[sessionName]["activeQuestionID"] = questionIDs[-1]
+            print(sessions[sessionName]["activeQuestionID"])
+            currentQuestion = sessions[sessionName]["questionCount"] - sessions[sessionName]["questionsRemaining"]
+            return {"status": 0, "questionCount":sessions[sessionName]["questionCount"], "currentQuestion": currentQuestion, "question":questions[questionIDs.pop()]}
+        else:
+            return {"status": 2}
+    else:
+        return {"status":1}
 
 @hug.get("/backend/session/new", output=hug.output_format.json) 
-def sessionInit(name,noquestions:hug.types.number):
-    if name in sessions:
+def sessionInit(sessionName,noquestions:hug.types.number):
+    if sessionName in sessions:
         return {"status": 1}
     questionPool = list(questionIDs)
     questionList = []
     for i in range(noquestions):
-        r = random.randint(0,len(questionPool)-1)
-        questionList.append(questionPool.pop(r))
-    print(questionList)
-    sessions[name] = {"questions_count": noquestions, "questions remaining": noquestions, "players":{}, "questions": questionList}
-    return {"status": 0, "sessions": sessions[name]}    
+        if len(questionPool) == 0:
+            return {"status": 2}
+        random.shuffle(questionPool)
+        questionList.append(questionPool.pop())
+    sessions[sessionName] = {"questionCount": noquestions, "questionsRemaining": noquestions, "players":{}, "questions": questionList, "activeQuestionID": "000"}
+    return {"status": 0, "sessions": sessions[sessionName]}    
 
 @hug.get("/backend/session/playerlist", output=hug.output_format.json)
 def playerList(name):
