@@ -29,31 +29,63 @@
         <script src="/10ft/qw.js"></script>
         <script>
             sessionname = "$SESSIONNAME$";
+            question_count = 0;
+            current_question = 0;
+            question = {};
+
+            $(document).ready(function() {
+                $("#data-title-sessionname").text(sessionname);
+                $("#data-info-sessionname").text(sessionname);
+
+                $.ajax({
+                    "url": "/backend/question/new?sessionName=" + sessionname,
+                    success: function(data) {
+                        if (status == 0)
+                        {
+                            question_count = data["questionCount"];
+                            current_question = data["currentQuestion"];
+                            question = data["question"];
+
+                            $("#question-text").text(question["question"]);
+                            for (var i = question["states"] - 1; i >= 0; i--) {
+                                $("#list-item-" + i).text(question["list"][i]);
+                            }
+
+                            $("#answer-1").text(question["answer1"]);
+                            $("#answer-2").text(question["answer2"]);
+                            $("#answer-3").text(question["answer3"]);
+                            $("#answer-4").text(question["answer4"]);
+
+                            reveal_list(0);
+                        }
+                    }
+                })
+            });
         </script>
     </head>
     <body class="indigo">
         <div class="container">
-            <h1 class="grey-text text-lighten-3">What links the items in this collection?</h1>
+            <h1 id="question-text" class="grey-text text-lighten-3"></h1>
             <table class="grey-text text-lighten-4" style="font-size: 2.3rem;">
                 <tr>
-                    <td id="list-item-0"></td>
-                    <td id="list-item-1"></td>
+                    <td id="list-item-0" class="indigo-text"></td>
+                    <td id="list-item-1" class="indigo-text"></td>
                 </tr>
                 <tr>
-                    <td id="list-item-2"></td>
-                    <td id="list-item-3"></td>
+                    <td id="list-item-2" class="indigo-text"></td>
+                    <td id="list-item-3" class="indigo-text"></td>
                 </tr>
                 <tr>
-                    <td id="list-item-4"></td>
-                    <td id="list-item-5"></td>
+                    <td id="list-item-4" class="indigo-text"></td>
+                    <td id="list-item-5" class="indigo-text"></td>
                 </tr>
                 <tr>
-                    <td id="list-item-6"></td>
-                    <td id="list-item-7"></td>
+                    <td id="list-item-6" class="indigo-text"></td>
+                    <td id="list-item-7" class="indigo-text"></td>
                 </tr>
                 <tr>
-                    <td id="list-item-8"></td>
-                    <td id="list-item-9"></td>
+                    <td id="list-item-8" class="indigo-text"></td>
+                    <td id="list-item-9" class="indigo-text"></td>
                 </tr>
             </table>
         </div>
@@ -69,7 +101,7 @@
             </div>
 
             <div class="col s3 card yellow" style="min-height: 47vh;">
-                <h3 id="answer-4" class="grey-text text-lighten-1 center"></h3>
+                <h3 id="answer-4" class="center"></h3>
             </div>
         </div>
     </body>
