@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>QuizWipe</title>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>
+            #startpage-header
+            {
+                width: 60%;
+                margin-left: 20%;
+                height: 15vh;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #startpage-main
+            {
+                width: 50%;
+                margin-left: 25%;
+                height: 70vh;
+            }
+        </style>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script src="/10ft/qw.js"></script>
+        <script>
+            sessionname = "$SESSIONNAME$";
+        </script>
+    </head>
+    <body class="indigo">
+        <div class="container">
+            <h1 class="grey-text text-lighten-3">What links the items in this collection?</h1>
+            <table class="grey-text text-lighten-4" style="font-size: 2.3rem;">
+                <tr>
+                    <td id="list-item-0"></td>
+                    <td id="list-item-1"></td>
+                </tr>
+                <tr>
+                    <td id="list-item-2"></td>
+                    <td id="list-item-3"></td>
+                </tr>
+                <tr>
+                    <td id="list-item-4"></td>
+                    <td id="list-item-5"></td>
+                </tr>
+                <tr>
+                    <td id="list-item-6"></td>
+                    <td id="list-item-7"></td>
+                </tr>
+                <tr>
+                    <td id="list-item-8"></td>
+                    <td id="list-item-9"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col s3 card blue" style="min-height: 47vh;">
+                <h3 id="answer-1" class="grey-text text-lighten-2 center"></h3>
+            </div>
+            <div class="col s3 card orange" style="min-height: 47vh;">
+                <h3 id="answer-2" class="grey-text text-lighten-2 center"></h3>
+            </div>
+            <div class="col s3 card green" style="min-height: 47vh;">
+                <h3 id="answer-3" class="grey-text text-lighten-2 center"></h3>
+            </div>
+
+            <div class="col s3 card yellow" style="min-height: 47vh;">
+                <h3 id="answer-4" class="grey-text text-lighten-1 center"></h3>
+            </div>
+        </div>
+    </body>
+</html>
