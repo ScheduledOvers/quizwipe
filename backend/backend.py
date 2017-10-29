@@ -56,7 +56,7 @@ def clientInit(sessionName, clientName):
 def heartbeatHelper(sessionName, clientName):
     if sessionName in sessions:
         if clientName in sessions[sessionName]["players"]:
-            sessions[sessionName]["players"][clientName] = 0
+            sessions[sessionName]["players"][clientName]["timeOut"] = 0
             return {"status": 0}
         else:
             return {"status": 2}
@@ -154,6 +154,12 @@ def staticReturn10ftJava():
 @hug.get("/10ft/joining", output=hug.output_format.html)
 def dynamicReturn10ftJoining(sessionName):
     with open("../10ft/joining.html") as f:
+        return f.read().replace("$SESSIONNAME$", sessionName)
+
+@hug.get("/10ft/question.html", output=hug.output_format.html)
+@hug.get("/10ft/question", output=hug.output_format.html)
+def dynamicReturn10ftQuestion(sessionName):
+    with open("../10ft/question.html") as f:
         return f.read().replace("$SESSIONNAME$", sessionName)
 
 @hug.get("/index", output=hug.output_format.html)
