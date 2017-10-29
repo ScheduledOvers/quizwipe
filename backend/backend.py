@@ -164,12 +164,12 @@ def staticReturnClientIndex():
         return f.read()
 
 @hug.get("/qw.js", output=hug.output_format.text)
-def staticReturn10ftJava():
+def staticReturnClientJava():
     with open("../client/qw.js") as f:
         return f.read()
 
 @hug.get("/play.html", output=hug.output_format.html)
 @hug.get("/play", output=hug.output_format.html)
-def dynamicReturn10ftJoining(sessionName, clientName):
+def dynamicReturnClientPlay(sessionName, clientName):
     with open("../client/play.html") as f:
         return f.read().replace("$SESSIONNAME$", sessionName).replace("$CLIENTNAME$", clientName)
