@@ -36,6 +36,14 @@ function get_player_list()
     });
 };
 
+function reveal_list(listitem) {
+    if ($("#list-item-" + listitem).text() !== "")
+    {
+        $("#list-item-" + listitem).removeClass("indigo-text");
+        setTimeout(function(){ reveal_list(listitem + 1); }, 5000);
+    }
+}
+
 $(document).ready(function() {
     $('select').material_select();
     $("#data-title-sessionname").text(sessionname);

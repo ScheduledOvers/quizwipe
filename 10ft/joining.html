@@ -31,6 +31,15 @@
             sessionname = "$SESSIONNAME$";
             playerlist = [];
 
+            document.onkeypress = function(e)
+            {
+                e = e || window.event;
+                if (e.keyCode == 13)
+                {
+                    window.location = "/10ft/question.html?sessionName=" + sessionname;
+                }
+            }
+
             setInterval(get_player_list, 1000);
         </script>
     </head>
