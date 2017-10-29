@@ -82,7 +82,7 @@ function get_question() {
                     $("#answer-3").text(question["answer3"]);
                     $("#answer-4").text(question["answer4"]);
 
-                    reveal_questionstages(0, question["stages"]);
+                    reveal_questionstages(0, question["states"]);
                     setTimeout(get_results, 30000);
                 }
                 else if (data["question"]["type"] == "answer")
@@ -91,7 +91,7 @@ function get_question() {
                     current_question = data["currentQuestion"];
                     question = data["question"];
                     qtext = question["question"];
-                    atext = question["answer" + question["solution"]][question["stages"] - 1];
+                    atext = question["answer" + question["solution"]][2];
 
                     $("body").html('<div class="container"><h1 id="question-text" class="grey-text text-lighten-3"></h1><br><br><br><br><br><br></div><div class="row"><div class="col s3 card blue" style="min-height: 47vh;"><h3 id="answer-1" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card orange" style="min-height: 47vh;"><h3 id="answer-2" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card green" style="min-height: 47vh;"><h3 id="answer-3" class="grey-text text-lighten-2 center"></h3></div><div class="col s3 card yellow" style="min-height: 47vh;"><h3 id="answer-4" class="center"></h3></div></div>');
 
@@ -102,7 +102,7 @@ function get_question() {
                     $("#answer-3").text(question["answer3"][0]);
                     $("#answer-4").text(question["answer4"][0]);
 
-                    reveal_answerstages(0, question["stages"]);
+                    reveal_answerstages(0, question["states"]);
                     setTimeout(get_results, 30000);
                 }
             }
