@@ -77,32 +77,32 @@
         "008":{
             "states":3,
             "type": "question",
-            "question":["This is a question", "This is a question", "This is a question"],
-            "answer1":"This is the first answer",
-            "answer2":"This is the second answer",
-            "answer3":"This is the correct answer",
-            "answer4":"This is wrong",
-            "solution":3
+            "question":["Which world renowned scientist gained acclaim for their work published in 1905?", "Which German-born world renowned scientist gained acclaim for their work published in 1905?", "Which German-born world renowned scientist gained acclaim for their work (including the equation e = mc^2 published in 1905?"],
+            "answer1":"Nikola Tesla",
+            "answer2":"Albert Einstein",
+            "answer3":"Isaac Newton",
+            "answer4":"Max Abraham",
+            "solution":2
         },
         "009":{
             "states":3,
             "type": "question",
-            "question":["This is a question", "This is a question", "This is a question"],
-            "answer1":"This is the first answer",
-            "answer2":"This is the second answer",
-            "answer3":"This is the correct answer",
-            "answer4":"This is wrong",
-            "solution":3
+            "question":["Who is considered to be the first computer programmer?", "Who is considered to be the first computer programmer and has a programming language named after her?", "Who is considered to be the first computer programmer, has a programming language named after her and programmed on Babbage's difference engine?"],
+            "answer1":"Ada Lovelace",
+            "answer2":"Niklaus Wirth",
+            "answer3":"Donald Knuth",
+            "answer4":"Kathleen Booth",
+            "solution":1
         },
         "010":{
             "states":3,
             "type": "question",
-            "question":["This is a question", "This is a question", "This is a question"],
-            "answer1":"This is the first answer",
-            "answer2":"This is the second answer",
-            "answer3":"This is the correct answer",
-            "answer4":"This is wrong",
-            "solution":3
+            "question":["Who won the Nobel Peace Prize in 1993?", "Who won the Nobel Peace Prize in 1993 for their work against racism?", "Who won the Nobel Peace Prize in 1993 for work abolishing apartheid?"],
+            "answer1":"Rigoberta Menchú",
+            "answer2":"Amnesty International",
+            "answer3":"Mikhail Gorbachev",
+            "answer4":"Nelson Mandela",
+            "solution":4
         },
         "011":{
             "states":3,
@@ -137,12 +137,12 @@
         "014":{
             "states":3,
             "type": "answer",
-            "question":"Where and when was ",
-            "answer1": ["", "", ""],
-            "answer2": ["", "", ""],
-            "answer3": ["", "", ""],
-            "answer4": ["", "", ""],
-            "solution":3
+            "question":"What are the best selling games of all time?",
+            "answer1": ["3) Wii Sports", "3) Wii Sports, 2) Minecraft", "3) Wii Sports, 2) Minecraft, 1) Tetris"],
+            "answer2": ["3) Grand Theft Auto 5", "3) Grand Theft Auto 5, 2) Super Mario Bros.", "3) Grand Theft Auto 5, 2) Super Mario Bros., 1) Mario Kart Wii"],
+            "answer3": ["3) Wii Sports", "3) Wii Sports, 2) Minecraft", "3) Wii Sports, 2) Minecraft, 1) Pokemon Red, Green and Blue"],
+            "answer4": ["3) Grand Theft Auto 5", "3) Grand Theft Auto 5, 2) Duck Hunt", "3) Grand Theft Auto 5, 2) Duck Hunt, 1) Tetris"],
+            "solution":1
         },
         "015":{
             "states":3,
@@ -152,6 +152,6 @@
             "answer2": ["0b1001011", "0b1001011, 0x4B", "0b1001011, 0x4B, 75"],
             "answer3": ["0b1011011", "0b1011011, 0x5B", "0b1011011, 0x5B, 91"],
             "answer4": ["0b1001000", "0b1001000, 0x48", "0b1001000, 0x48, 72"],
-            "solution":3
+            "solution":4
         }
 }
