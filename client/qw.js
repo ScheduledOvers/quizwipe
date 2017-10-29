@@ -32,7 +32,7 @@ function contact_server(button)
 
 function heartbeat() {
     $.ajax({
-        url: "/backend/client/hearbeat?sessionName=" + sessionname + "&clientName=" + clientname
+        url: "/backend/client/heartbeat?sessionName=" + sessionname + "&clientName=" + clientname
     });
 }
 
