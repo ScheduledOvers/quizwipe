@@ -39,7 +39,7 @@
             <br>
             <div class="row">
                 <div class="input-field col s8 offset-s2">
-                    <input id="session_name" type="text">
+                    <input id="session_name" type="text" onkeydown="if (event.keycode == 13) {$('new_session()')}">
                     <label for="session_name">Session Name</label>
                 </div>
             </div>
