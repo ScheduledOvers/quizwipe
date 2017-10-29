@@ -158,7 +158,7 @@ def dynamicReturn10ftJoining(sessionName):
 
 @hug.get("/index", output=hug.output_format.html)
 @hug.get("/index.html", output=hug.output_format.html)
-@hug.get("", output=hug.output_format.html)
+@hug.get("/", output=hug.output_format.html)
 def staticReturnClientIndex():
     with open("../client/index.html") as f:
         return f.read()
