@@ -40,7 +40,7 @@ function get_question() {
     $.ajax({
         "url": "/backend/question/new?sessionName=" + sessionname,
         success: function(data) {
-            if (status == 0)
+            if (data["status"] == 0)
             {
                 if (data["question"]["type"] == "list")
                 {
@@ -106,35 +106,35 @@ function get_question() {
                     setTimeout(get_results, 30000);
                 }
             }
-            else if (status == 2)
+            else if (data["status"] == 2)
             {
                 $.ajax({
                     "url": "/backend/session/standings?sessionName=" + sessionname,
                     success: function(data) {
                         if (data["status"] == 0)
                         {
-                            out = '<div class="container"><h1 id="question-text" class="grey-text text-lighten-3">' + qtext + '</h1><h3>Correct answer: <span id="correct">' + atext + '</span></h3><br><br><ul class="collection">'
-                            if (data["results"][0]["result"] > 0)
+                            out = '<div class="container"><h1 class="grey-text text-lighten-3 center">QuizWipe</h1><h2 class="grey-text text-lighten-3 center">Game Complete!</h2><ul class="collection">'
+                            if (data["results"][4]["score"] > 0)
                             {
-                                out += '<li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][0]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][0]["player"] + '</span><p>First Place</p></li>'
-                                if (data["results"][1]["result"] > 0)
+                                out += '<li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][4]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][4]["player"] + '</span><p>First Place</p></li>'
+                                if (data["results"][3]["score"] > 0)
                                 {
-                                    out += '<li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][1]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][1]["player"] + '</span><p>Second Place</p></li>'
-                                    if (data["results"][2]["result"] > 0)
+                                    out += '<li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][3]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][3]["player"] + '</span><p>Second Place</p></li>'
+                                    if (data["results"][2]["score"] > 0)
                                     {
                                         out += '<li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][2]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][2]["player"] + '</span><p>Third Place</p></li>'
-                                        if (data["results"][3]["result"] > 0)
+                                        if (data["results"][1]["score"] > 0)
                                         {
-                                            out += '<li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][3]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][3]["player"] + '</span><p>Fourth Place</p></li>'
-                                            if (data["results"][4]["result"] > 0)
+                                            out += '<li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][1]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][1]["player"] + '</span><p>Fourth Place</p></li>'
+                                            if (data["results"][0]["score"] > 0)
                                             {
-                                                out += '<li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][4]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][4]["player"] + '</span><p>Fifth Place</p></li>'
+                                                out += '<li class="collection-item avatar"><img src="https://api.adorable.io/avatars/285/' + data["results"][0]["player"] + '.png" alt="" class="circle"><span class="title">' + data["results"][0]["player"] + '</span><p>Fifth Place</p></li>'
                                             }
                                         }
                                     }
                                 }
                             }
-                            out += '</ul>'
+                            out += '</ul></div>'
                             $("body").html(out);
                         }
                     }
